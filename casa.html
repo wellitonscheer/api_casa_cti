@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <button id="fungo" onclick="Chamar_Dados('luz_azul')">Ligar luz azul</button>
+    <button id="luz" onclick="Chamar_Dados('desliga_luz_azul')">Desligar luz azul</button><br><br><br>
+    <button id="fungo" onclick="Chamar_Dados('luz_branca')">Ligar luz branca</button>
+    <button id="luz" onclick="Chamar_Dados('desliga_luz_branca')">Desligar luz branca</button><br><br><br>
+    <button id="fungo" onclick="Chamar_Dados('luz_vermelha')">Ligar luz vermelha</button>
+    <button id="luz" onclick="Chamar_Dados('desliga_luz_vermelha')">Desligar luz vermelha</button>
+    <h1 id="resposta"></h1>
+
+
+    <script type="text/javascript">
+        function Chamar_Dados(url){
+            event.preventDefault();
+            // const peso = document.querySelector("input[name=Peso]").value;
+            // const altura = document.querySelector("input[name=Altura]").value;
+            fetch(`http://localhost:5000/HelloWorld/${url}`, {
+                method: "GET",
+                
+                headers: {
+                    "Accept": "application/json",
+                    "Content-Type": "application/json"
+                }
+            })
+                .then(r => r.json())
+                .then(dados => {
+                    console.log(dados);
+                    document.querySelector("#resposta").innerHTML = dados.nome;
+                });
+        }
+    </script>
+</body>
+
+</html>
