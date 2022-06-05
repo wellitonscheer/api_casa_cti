@@ -25,3 +25,5 @@
 /home/caie/Documents/Projetos/api/bin/Debug/net6.0/Swashbuckle.AspNetCore.SwaggerUI.dll
 /home/caie/Documents/Projetos/api/obj/Debug/net6.0/api1.MvcApplicationPartsAssemblyInfo.cs
 /home/caie/Documents/Projetos/api/obj/Debug/net6.0/api1.csproj.CopyComplete
+/home/caie/Documents/Projetos/api/bin/Debug/net6.0/Dapper.dll
+/home/caie/Documents/Projetos/api/bin/Debug/net6.0/Npgsql.dll

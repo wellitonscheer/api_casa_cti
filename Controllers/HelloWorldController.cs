@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using System.Net.Http;
 using System.Text.Json;
 using System;
+using System.Linq;
 
 namespace api1.Controllers
 {
@@ -25,6 +26,18 @@ namespace api1.Controllers
             return Ok(new
             {
                 resposta = resposta.nome
+            });
+        }
+        [HttpGet]
+        [Route("banco")]
+        public async Task<IActionResult> Banco()
+        {
+            HelperService a = new HelperService();
+            var resposta = await a.SelectDB<aprender>();
+            var b = resposta.First();
+            return Ok(new
+            {
+                resposta = b
             });
         }
 
