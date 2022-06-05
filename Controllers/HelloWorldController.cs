@@ -33,12 +33,22 @@ namespace api1.Controllers
         public async Task<IActionResult> Banco()
         {
             HelperService a = new HelperService();
-            var resposta = await a.SelectDB<aprender>();
-            var b = resposta.First();
+            var resposta = await a.SelectDB<aprender>("aprender");
             return Ok(new
             {
-                resposta = b
+                resposta = resposta
             });
+        }
+
+        [HttpGet]
+        [Route("insert")]
+        public async void BancoInsert()
+        {
+            HelperService a = new HelperService();
+            aprender pessoa = new aprender();
+            pessoa.nome = "welliton";
+            pessoa.idade = 83;
+            await a.Insert(pessoa);
         }
 
         [HttpPost]
