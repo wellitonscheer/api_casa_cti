@@ -46,8 +46,8 @@ namespace api1.Controllers
         {
             HelperService a = new HelperService();
             aprender pessoa = new aprender();
-            pessoa.nome = "daniel";
-            pessoa.idade = 17;
+            pessoa.nome = "adriano";
+            pessoa.idade = 25;
             await a.Insert(pessoa);
         }
 
