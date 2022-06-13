@@ -15,7 +15,7 @@ namespace api1.Services
     {
         //private NpgsqlConnection connection;
         //private const string BASE_URL_ARDUINO = "http://192.168.21.153:90/?acao=";
-        private const string BASE_URL_ARDUINO = "https://af71-2804-18-3f-6a88-f384-1d94-3ac9-d738.sa.ngrok.io/?acao=";
+        private const string BASE_URL_ARDUINO = "https://c032-2804-18-3f-6a88-75f9-75ef-4231-8d94.sa.ngrok.io/?acao=";
         
         NpgsqlConnection connection = new NpgsqlConnection("Server=ec2-52-204-195-41.compute-1.amazonaws.com;Port=5432;User Id=ptiupmxqefzbrw;Password=b0d2608030cee865d43b71bd99af5856c2bc1f7bd3d7e38e118288d90cfa2077;Database=dem3st7tq31kr7;");
 
@@ -25,6 +25,7 @@ namespace api1.Services
             string link = String.Format("{0}{1}", BASE_URL_ARDUINO, path);
             HttpResponseMessage response = await client.GetAsync(link);
             string json = await response.Content.ReadAsStringAsync();
+ 
             return JsonSerializer.Deserialize<T>(json);
         }
 
