@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "ix20B4jodRLBMIoD/VELQMI0qDqV0iT4pldqWt5wG7qipDxHs3/lF+Qp8ZZgn2DyC1GvgNoTSgKK/c4JtCheww==",
+  "dgSpecHash": "MFnaB1WHBhMlW6r5ANNJOo+8PuFEetwqiUA83SQRnhitjdNt93KklZgyJELXUY76piY7m9N9N81kryc864jLcQ==",
   "success": true,
   "projectFilePath": "/home/caie/Documents/Projetos/api/api1.csproj",
   "expectedPackageFiles": [
@@ -12,7 +12,9 @@
     "/home/caie/.nuget/packages/swashbuckle.aspnetcore.swagger/6.3.1/swashbuckle.aspnetcore.swagger.6.3.1.nupkg.sha512",
     "/home/caie/.nuget/packages/swashbuckle.aspnetcore.swaggergen/6.3.1/swashbuckle.aspnetcore.swaggergen.6.3.1.nupkg.sha512",
     "/home/caie/.nuget/packages/swashbuckle.aspnetcore.swaggerui/6.3.1/swashbuckle.aspnetcore.swaggerui.6.3.1.nupkg.sha512",
-    "/home/caie/.nuget/packages/system.runtime.compilerservices.unsafe/6.0.0/system.runtime.compilerservices.unsafe.6.0.0.nupkg.sha512"
+    "/home/caie/.nuget/packages/system.runtime.compilerservices.unsafe/6.0.0/system.runtime.compilerservices.unsafe.6.0.0.nupkg.sha512",
+    "/home/caie/.nuget/packages/microsoft.netcore.app.ref/6.0.5/microsoft.netcore.app.ref.6.0.5.nupkg.sha512",
+    "/home/caie/.nuget/packages/microsoft.netcore.app.host.linux-x64/6.0.5/microsoft.netcore.app.host.linux-x64.6.0.5.nupkg.sha512"
   ],
   "logs": []
 }
