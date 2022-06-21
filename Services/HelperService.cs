@@ -44,5 +44,11 @@ namespace api1.Services
            };
            var pessoas = await connection.ExecuteAsync(commandText, argumentos);
         }
+        public async Task<IEnumerable<T>> pegarUsuario<T>(string usuario){
+           connection.Open();
+           string commandText = String.Format("SELECT U.LOGIN, U.SENHA FROM USUARIOS U WHERE LOGIN = '{0}'", usuario);
+           var credenciais = await connection.QueryAsync<T>(commandText);
+           return credenciais;
+        }
     }
 }

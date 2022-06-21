@@ -16,6 +16,9 @@ namespace api1.Controllers
         public class QueryParameters
         {
             public string path { get; set; }
+            public string item { get; set; }
+            public string acao { get; set; }
+            public string usuario { get; set; }
         }
 
         [HttpGet]
@@ -29,7 +32,7 @@ namespace api1.Controllers
             });
         }
         [HttpGet]
-        [Route("banco")]
+        [Route("select")]
         public async Task<IActionResult> Banco()
         {
             HelperService a = new HelperService();
@@ -49,6 +52,18 @@ namespace api1.Controllers
             pessoa.nome = "adriano";
             pessoa.idade = 25;
             await a.Insert(pessoa);
+        }
+
+        [HttpGet]
+        [Route("login")]
+        public async Task<IActionResult> testarSenha([FromQuery] QueryParameters queryParameters)
+        {
+            HelperService a = new HelperService();
+            var resposta = await a.pegarUsuario<Login>(queryParameters.usuario);
+            return Ok(new
+            {
+                resposta = resposta
+            });
         }
 
         [HttpPost]
