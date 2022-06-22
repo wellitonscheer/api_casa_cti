@@ -66,6 +66,18 @@ namespace api1.Controllers
             });
         }
 
+        [HttpGet]
+        [Route("evento")]
+        public async Task<IActionResult> EventoInserir([FromQuery] QueryParameters queryParameters)
+        {
+            HelperService a = new HelperService();
+            await a.InserirEvento(queryParameters.usuario, queryParameters.acao, queryParameters.item);
+            return Ok(new
+            {
+                resposta = "evento cadastrado"
+            });
+        }
+
         [HttpPost]
         public IActionResult SayHello([FromBody] Pessoa pessoa)
         {

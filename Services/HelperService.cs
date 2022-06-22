@@ -44,11 +44,27 @@ namespace api1.Services
            };
            var pessoas = await connection.ExecuteAsync(commandText, argumentos);
         }
+
         public async Task<IEnumerable<T>> pegarUsuario<T>(string usuario){
            connection.Open();
            string commandText = String.Format("SELECT U.LOGIN, U.SENHA FROM USUARIOS U WHERE LOGIN = '{0}'", usuario);
            var credenciais = await connection.QueryAsync<T>(commandText);
            return credenciais;
+        }
+
+        public async Task InserirEvento(string usuario, string acao, string item){
+           connection.Open();
+           DateTime tempo = DateTime.Now;
+           var queryCodPessoa = String.Format("select u.id from usuarios u where u.login = '{0}'", usuario);
+           var codPessoa = await connection.QueryFirstAsync<Codigo>(queryCodPessoa);
+           string commandText = "INSERT INTO eventos (acao, pessoa, componente, tempo) VALUES (@acaoQj, @pessoaQj, @componenteQj, @tempoQj)";
+           var argumentos = new {
+               acaoQj = acao,
+               pessoaQj = codPessoa.id,
+               componenteQj = item,
+               tempoQj = tempo
+           };
+           var credenciais = await connection.ExecuteAsync(commandText, argumentos);
         }
     }
 }
