@@ -16,8 +16,8 @@ namespace api1.Controllers
         public class QueryParameters
         {
             public string path { get; set; }
-            public string item { get; set; }
-            public string acao { get; set; }
+            public int item { get; set; }
+            public int acao { get; set; }
             public string usuario { get; set; }
         }
 
@@ -74,7 +74,7 @@ namespace api1.Controllers
             await a.InserirEvento(queryParameters.usuario, queryParameters.acao, queryParameters.item);
             return Ok(new
             {
-                resposta = "evento cadastrado"
+                resposta = "evento inserido"
             });
         }
 

@@ -17,7 +17,7 @@ namespace api1.Services
         //private const string BASE_URL_ARDUINO = "http://192.168.21.153:90/?acao=";
         private const string BASE_URL_ARDUINO = "https://2a67-138-94-78-86.sa.ngrok.io/?acao=";
         
-        NpgsqlConnection connection = new NpgsqlConnection("Server=ec2-52-204-195-41.compute-1.amazonaws.com;Port=5432;User Id=ptiupmxqefzbrw;Password=b0d2608030cee865d43b71bd99af5856c2bc1f7bd3d7e38e118288d90cfa2077;Database=dem3st7tq31kr7;");
+        IDbConnection connection = ConnectionService.GetInstance().connection;
 
         public async Task<T> RequestArduino<T>(string path)
         {
@@ -30,13 +30,11 @@ namespace api1.Services
         }
 
         public async Task<IEnumerable<T>> SelectDB<T>(string tabela){
-           connection.Open();
            string commandText = "SELECT * FROM " + tabela;
            var pessoas = await connection.QueryAsync<T>(commandText);
            return pessoas;
         }
         public async Task Insert(aprender pessoa){
-           connection.Open();
            string commandText = "INSERT INTO aprender (nome, idade) VALUES (@nome, @idade)";
            var argumentos = new {
                nome = pessoa.nome,
@@ -46,21 +44,24 @@ namespace api1.Services
         }
 
         public async Task<IEnumerable<T>> pegarUsuario<T>(string usuario){
-           connection.Open();
            string commandText = String.Format("SELECT U.LOGIN, U.SENHA FROM USUARIOS U WHERE LOGIN = '{0}'", usuario);
            var credenciais = await connection.QueryAsync<T>(commandText);
            return credenciais;
         }
 
-        public async Task InserirEvento(string usuario, string acao, string item){
-           connection.Open();
-           DateTime tempo = DateTime.Now;
+        public async Task<T> CodigoPessoa<T>(string usuario){
            var queryCodPessoa = String.Format("select u.id from usuarios u where u.login = '{0}'", usuario);
-           var codPessoa = await connection.QueryFirstAsync<Codigo>(queryCodPessoa);
+           var codPessoa = await connection.QueryFirstAsync<T>(queryCodPessoa);
+        return codPessoa;
+        }
+        
+        public async Task InserirEvento(string usuario, int acao, int item){
+           DateTime tempo = DateTime.Now;
+           int id = (await CodigoPessoa<Codigo>(usuario)).id;
            string commandText = "INSERT INTO eventos (acao, pessoa, componente, tempo) VALUES (@acaoQj, @pessoaQj, @componenteQj, @tempoQj)";
            var argumentos = new {
                acaoQj = acao,
-               pessoaQj = codPessoa.id,
+               pessoaQj = id,
                componenteQj = item,
                tempoQj = tempo
            };
