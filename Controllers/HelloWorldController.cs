@@ -19,6 +19,7 @@ namespace api1.Controllers
             public int item { get; set; }
             public int acao { get; set; }
             public string usuario { get; set; }
+            public string tabela { get; set; }
         }
 
         [HttpGet]
@@ -75,6 +76,42 @@ namespace api1.Controllers
             return Ok(new
             {
                 resposta = "evento inserido"
+            });
+        }
+
+        [HttpGet]
+        [Route("filtro_usuario")]
+        public async Task<IActionResult> FiltroUsuario([FromQuery] QueryParameters queryParameters)
+        {
+            HelperService a = new HelperService();
+            var usuarios = await a.SelectDB<Usuarios>(queryParameters.tabela);
+            return Ok(new
+            {
+                resposta = usuarios
+            });
+        }
+
+        [HttpGet]
+        [Route("filtro_componente")]
+        public async Task<IActionResult> FiltroComponente([FromQuery] QueryParameters queryParameters)
+        {
+            HelperService a = new HelperService();
+            var componentes = await a.SelectDB<Componentes>(queryParameters.tabela);
+            return Ok(new
+            {
+                resposta = componentes
+            });
+        }
+
+        [HttpGet]
+        [Route("filtro_acao")]
+        public async Task<IActionResult> FiltroAcao([FromQuery] QueryParameters queryParameters)
+        {
+            HelperService a = new HelperService();
+            var acoes = await a.SelectDB<Acoes>(queryParameters.tabela);
+            return Ok(new
+            {
+                resposta = acoes
             });
         }
 

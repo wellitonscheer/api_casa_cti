@@ -31,8 +31,8 @@ namespace api1.Services
 
         public async Task<IEnumerable<T>> SelectDB<T>(string tabela){
            string commandText = "SELECT * FROM " + tabela;
-           var pessoas = await connection.QueryAsync<T>(commandText);
-           return pessoas;
+           var resposta = await connection.QueryAsync<T>(commandText);
+           return resposta;
         }
         public async Task Insert(aprender pessoa){
            string commandText = "INSERT INTO aprender (nome, idade) VALUES (@nome, @idade)";
