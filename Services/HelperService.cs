@@ -67,5 +67,11 @@ namespace api1.Services
            };
            var credenciais = await connection.ExecuteAsync(commandText, argumentos);
         }
+
+        public async Task<IEnumerable<T>> RelatorioDb<T>(string filtro = ""){
+           string commandText = "select e.id, a.descricao, u.nome, c.componentenome, e.tempo from eventos e inner join usuarios u on e.pessoa = u.id inner join acoes a on e.acao = a.id inner join componentes c on e.componente = c.id " + filtro;
+           var resposta = await connection.QueryAsync<T>(commandText);
+           return resposta;
+        }
     }
 }

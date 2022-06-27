@@ -20,6 +20,7 @@ namespace api1.Controllers
             public int acao { get; set; }
             public string usuario { get; set; }
             public string tabela { get; set; }
+            public string filtro { get; set; }
         }
 
         [HttpGet]
@@ -112,6 +113,18 @@ namespace api1.Controllers
             return Ok(new
             {
                 resposta = acoes
+            });
+        }
+
+        [HttpGet]
+        [Route("relatorio")]
+        public async Task<IActionResult> Relatorio([FromQuery] QueryParameters queryParameters)
+        {
+            HelperService a = new HelperService();
+            var relatorio = await a.RelatorioDb<Relatorio>(queryParameters.filtro);
+            return Ok(new
+            {
+                resposta = relatorio
             });
         }
 
