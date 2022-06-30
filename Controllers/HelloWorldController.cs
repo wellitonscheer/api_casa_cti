@@ -30,7 +30,8 @@ namespace api1.Controllers
             var resposta = await new HelperService().RequestArduino<Casa>(queryParameters.path);
             return Ok(new
             {
-                resposta = resposta.nome
+                resposta = resposta.nome,
+                umidade = resposta.umidade
             });
         }
         [HttpGet]
