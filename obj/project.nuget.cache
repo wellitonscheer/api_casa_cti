@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "JFLRcOPcnwv95HamZxx480Rfk17gHGbYqeq7V6gds8QlYAG3Imp7+5PufXcmewYsW+VdphZVanAPQWsiGbX9DQ==",
+  "dgSpecHash": "i8kSoT+RLDjmidHGAb8z87dr7iJtB8mJ/CMOD5tNXNB2bySONnnDQ32d0xmaEyQD7Dgljz6qRfrdAOjsqFeY1w==",
   "success": true,
-  "projectFilePath": "/home/caie/Documents/Projetos/api/api1.csproj",
+  "projectFilePath": "/home/caie/Projects/csharp-projects/cti/api_casa_cti/api1.csproj",
   "expectedPackageFiles": [
     "/home/caie/.nuget/packages/dapper/2.0.123/dapper.2.0.123.nupkg.sha512",
     "/home/caie/.nuget/packages/microsoft.extensions.apidescription.server/3.0.0/microsoft.extensions.apidescription.server.3.0.0.nupkg.sha512",

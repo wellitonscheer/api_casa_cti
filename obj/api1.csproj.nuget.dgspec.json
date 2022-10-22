@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "/home/caie/Documents/Projetos/api/api1.csproj": {}
+    "/home/caie/Projects/csharp-projects/cti/api_casa_cti/api1.csproj": {}
   },
   "projects": {
-    "/home/caie/Documents/Projetos/api/api1.csproj": {
+    "/home/caie/Projects/csharp-projects/cti/api_casa_cti/api1.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/home/caie/Documents/Projetos/api/api1.csproj",
+        "projectUniqueName": "/home/caie/Projects/csharp-projects/cti/api_casa_cti/api1.csproj",
         "projectName": "api1",
-        "projectPath": "/home/caie/Documents/Projetos/api/api1.csproj",
+        "projectPath": "/home/caie/Projects/csharp-projects/cti/api_casa_cti/api1.csproj",
         "packagesPath": "/home/caie/.nuget/packages/",
-        "outputPath": "/home/caie/Documents/Projetos/api/obj/",
+        "outputPath": "/home/caie/Projects/csharp-projects/cti/api_casa_cti/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "/home/caie/.nuget/NuGet/NuGet.Config"
@@ -69,7 +69,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "/usr/share/dotnet/sdk/6.0.301/RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "/usr/lib/dotnet/dotnet6-6.0.109/sdk/6.0.109/RuntimeIdentifierGraph.json"
         }
       }
     }
