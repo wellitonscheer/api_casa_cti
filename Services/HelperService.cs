@@ -15,7 +15,7 @@ namespace api1.Services
     {
         //private NpgsqlConnection connection;
         //private const string BASE_URL_ARDUINO = "http://192.168.21.153/?acao=";
-        private const string BASE_URL_ARDUINO = "https://c46b-138-94-78-86.sa.ngrok.io/?acao=";
+        private const string BASE_URL_ARDUINO = "https://93de-2804-18-835-8e55-56e3-a32d-1610-c818.sa.ngrok.io/?acao=";
         
         IDbConnection connection = ConnectionService.GetInstance().connection;
 
